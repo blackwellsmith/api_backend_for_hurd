@@ -18,9 +18,16 @@ class SessionsController < ApplicationController
             render json: current_user
         else
             render json: {
-                error: 'No one logged in'
+                alert: 'No one logged in'
             }
         end
+    end
+
+    def destroy
+        session.clear
+        render json: {
+
+        }
     end
 
 
