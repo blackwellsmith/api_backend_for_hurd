@@ -3,9 +3,15 @@ class JournalsController < ApplicationController
 
   # GET /journals
   def index
-    @journals = Journal.all
+    if logged_in
+      @journals = current_user.journals
 
-    render json: @journals
+      render json: @journals
+    else
+      render json: {
+        error: 'log in first please'
+      } 
+    end
   end
 
   # GET /journals/1
@@ -16,7 +22,8 @@ class JournalsController < ApplicationController
   # POST /journals
   def create
     @journal = Journal.new(journal_params)
-
+    @journal.user_id = current_user.id
+     
     if @journal.save
       render json: @journal, status: :created, location: @journal
     else
