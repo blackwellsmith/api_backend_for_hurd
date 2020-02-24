@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get "/get_current_user", to: "sessions#get_current_user"
   post "/signup", to: "users#create"
   post "/journalentry" , to: "journals#create"
-  get "/journalindex" , to: "journal#index"
+  get "/journalindex" , to: "journals#index"
+  post "/jobgoal" , to: "jobs#create"
   resources :contacts
   resources :journals
   resources :jobs
