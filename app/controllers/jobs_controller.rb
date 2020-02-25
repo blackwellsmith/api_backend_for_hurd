@@ -3,9 +3,15 @@ class JobsController < ApplicationController
 
   # GET /jobs
   def index
-    @jobs = Job.all
+    if logged_in
+      @job = current_user.jobs.last
 
-    render json: @jobs
+      render json: @job
+    else
+      render json: {
+        error: 'log in first please'
+      } 
+    end
   end
 
   # GET /jobs/1
@@ -15,9 +21,10 @@ class JobsController < ApplicationController
 
   # POST /jobs
   def create
+    byebug
     @job = Job.new(job_params)
     @job.user_id = current_user.id
-
+  byebug
     if @job.save
       render json: @job, status: :created, location: @job
     else
@@ -47,6 +54,7 @@ class JobsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def job_params
+      byebug
       params.require(:job).permit(:user_id, :name, :location, :pay)
     end
 end

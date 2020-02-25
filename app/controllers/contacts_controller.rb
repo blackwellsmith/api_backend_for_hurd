@@ -16,6 +16,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   def create
     @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
 
     if @contact.save
       render json: @contact, status: :created, location: @contact
