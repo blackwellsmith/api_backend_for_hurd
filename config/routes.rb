@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   post "/journalentry" , to: "journals#create"
   get "/journalindex" , to: "journals#index"
-  post "/jobcreate" , to: "jobs#create"
+  ##post "/jobs" , to: "jobs#create"
   
   resources :contacts
   resources :journals

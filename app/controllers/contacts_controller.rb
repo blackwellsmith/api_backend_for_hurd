@@ -3,9 +3,15 @@ class ContactsController < ApplicationController
 
   # GET /contacts
   def index
-    @contacts = Contact.all
+    if logged_in
+      @contacts = current_user.contacts.all
 
-    render json: @contacts
+      render json: @contacts
+    else
+      render json: {
+        error: 'log in first please'
+      } 
+    end
   end
 
   # GET /contacts/1
@@ -15,6 +21,7 @@ class ContactsController < ApplicationController
 
   # POST /contacts
   def create
+   # byebug
     @contact = Contact.new(contact_params)
     @contact.user_id = current_user.id
 

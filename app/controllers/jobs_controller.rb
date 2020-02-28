@@ -21,10 +21,10 @@ class JobsController < ApplicationController
 
   # POST /jobs
   def create
-    byebug
+    ##byebug
     @job = Job.new(job_params)
     @job.user_id = current_user.id
-  byebug
+  ##byebug
     if @job.save
       render json: @job, status: :created, location: @job
     else
@@ -54,7 +54,7 @@ class JobsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def job_params
-      byebug
-      params.require(:job).permit(:user_id, :name, :location, :pay)
+     ## byebug
+      params.permit(:user_id, :name, :location, :pay)
     end
 end
