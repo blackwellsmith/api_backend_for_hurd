@@ -9,7 +9,7 @@ class JournalsController < ApplicationController
       render json: @journals
     else
       render json: {
-        error: 'log in first please'
+        error: 'log in first please journal'
       } 
     end
   end

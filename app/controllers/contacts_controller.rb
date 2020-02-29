@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
       render json: @contacts
     else
       render json: {
-        error: 'log in first please'
+        error: 'log in first please contacts'
       } 
     end
   end
@@ -44,6 +44,7 @@ class ContactsController < ApplicationController
   # DELETE /contacts/1
   def destroy
     @contact = Contact.find(params[:id])
+    render json: @contact
     @contact.destroy
   end
 

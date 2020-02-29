@@ -9,7 +9,7 @@ class JobsController < ApplicationController
       render json: @job
     else
       render json: {
-        error: 'log in first please'
+        error: 'log in first please jobs'
       } 
     end
   end
