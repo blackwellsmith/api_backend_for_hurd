@@ -43,6 +43,7 @@ class ContactsController < ApplicationController
 
   # DELETE /contacts/1
   def destroy
+    @contact = Contact.find(params[:id])
     @contact.destroy
   end
 
@@ -54,6 +55,6 @@ class ContactsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
-      params.require(:contact).permit(:user_id, :name, :company, :position, :contact_info)
+      params.require(:contact).permit(:id, :user_id, :name, :company, :position, :contact_info)
     end
 end
