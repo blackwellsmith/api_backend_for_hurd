@@ -15,16 +15,14 @@ class JobsController < ApplicationController
   end
 
   # GET /jobs/1
-  def show
-    render json: @job
-  end
+  # def show
+  #   render json: @job
+  # end
 
   # POST /jobs
   def create
-    ##byebug
-    @job = Job.new(job_params)
-    @job.user_id = current_user.id
-  ##byebug
+      @job = Job.new(job_params)
+      @job.user_id = current_user.id
     if @job.save
       render json: @job, status: :created, location: @job
     else

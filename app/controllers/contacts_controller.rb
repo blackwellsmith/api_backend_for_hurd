@@ -15,9 +15,9 @@ class ContactsController < ApplicationController
   end
 
   # GET /contacts/1
-  def show
-    render json: @contact
-  end
+  # def show
+  #   render json: @contact
+  # end
 
   # POST /contacts
   def create
@@ -33,13 +33,13 @@ class ContactsController < ApplicationController
   end
 
   # PATCH/PUT /contacts/1
-  def update
-    if @contact.update(contact_params)
-      render json: @contact
-    else
-      render json: @contact.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @contact.update(contact_params)
+  #     render json: @contact
+  #   else
+  #     render json: @contact.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /contacts/1
   def destroy
