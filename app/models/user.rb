@@ -5,5 +5,6 @@ class User < ApplicationRecord
     has_many :contacts
     has_many :jobs
     validates :email, uniqueness: true
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :email, format: { with: /\A[^@\s]+@([^@.\s]+\.)*[^@.\s]+\z/  }
 end
+#URI::MailTo::EMAIL_REGEXP

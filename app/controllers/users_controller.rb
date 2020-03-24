@@ -23,7 +23,10 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user, status: :created, location: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+     # render json: @user.errors, error: :unprocessable_entity
+      render json: {
+        error: 'invalid sign up please make sure your signing up with the correct information'
+      } 
     end
   end
 
