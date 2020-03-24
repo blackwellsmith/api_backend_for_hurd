@@ -28,5 +28,5 @@ test:
 production:
   <<: *default
   database: api_backend_for_hurd_production
-  username: heard
+  username: hurd
   password: <%= ENV["MY_SECRET_KEY"] %>
