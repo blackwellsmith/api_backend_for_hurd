@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
        if @user && @user.authenticate(params[:session][:password])
          session[:user_id] = @user.id
          render json: @user
+         flash[:notice] = "You have successfully logged in"
        else
          render json: {
              error: "Invalid Credentials"
