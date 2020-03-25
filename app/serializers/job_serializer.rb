@@ -1,4 +1,4 @@
-class JobSerializer < ActiveModel::Serializer
+class JobSerializer #< ActiveModel::Serializer
   include FastJsonapi::ObjectSerializer 
   attributes :id
   
