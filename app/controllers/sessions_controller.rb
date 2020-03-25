@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
        if @user && @user.authenticate(params[:session][:password])
          session[:user_id] = @user.id
-
+         response.headers['Set-Cookie'] = 'Secure;SameSite=None'
          render json:  @user
             
        else
