@@ -1,4 +1,4 @@
-class ContactSerializer #< ActiveModel::Serializer
+class ContactSerializer < ActiveModel::Serializer
   include FastJsonapi::ObjectSerializer
   attributes :id
 end
